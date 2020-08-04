@@ -23,6 +23,64 @@ var Board = function(){
 		}
 	};
 	
+	this.randomize = function(){
+		var type = 0;
+		var index = 0;
+		var value = 1;
+		for(var i=0; i<RANDOM_COUNT; i++){
+			type = Math.floor(Math.random() * 2);
+			if(type == 0){//ROW
+				index = Math.floor(Math.random() * TILE_COUNT);
+				value = Math.floor(Math.random() * TILE_COUNT);
+				this.moveBoardRowValues(index,value);
+			}else{//COL
+				index = Math.floor(Math.random() * TILE_COUNT);
+				value = Math.floor(Math.random() * TILE_COUNT);
+				this.moveBoardColValues(index,value);
+			}
+		}
+		for(var i=0; i<TILE_COUNT; i++){
+			for(var j=0; j<TILE_COUNT; j++){
+				this.tilemap[i][j].tile_x_in = i;
+				this.tilemap[i][j].tile_y_in = j;
+				this.tilemap[i][j].tile_x = BOARD_LEFT_OFFSET + (i * TILE_SIZE);
+				this.tilemap[i][j].tile_y = BOARD_TOP_OFFSET + (j * TILE_SIZE);
+			}
+		}
+	};
+	
+	this.moveBoardRowValues = function(index, value){
+		if(index < TILE_COUNT && value < TILE_COUNT){
+			var temp = new Array(TILE_COUNT);
+			for(var i=0;i<TILE_COUNT;i++){
+				var newIndex = (i + value);
+				if(newIndex >= TILE_COUNT){
+					newIndex = (newIndex - TILE_COUNT);
+				}
+				temp[newIndex] = this.tilemap[index][i];				
+			}
+			for(var i=0;i<TILE_COUNT;i++){
+				this.tilemap[index][i] = temp[i];				
+			}
+		}
+	};
+	
+	this.moveBoardColValues = function(index, value){
+		if(index < TILE_COUNT  && value < TILE_COUNT){
+			var temp = new Array(TILE_COUNT);
+			for(var i=0;i<TILE_COUNT;i++){
+				var newIndex = (i + value);
+				if(newIndex >= TILE_COUNT){
+					newIndex = (newIndex - TILE_COUNT);
+				}
+				temp[newIndex] = this.tilemap[i][index];				
+			}
+			for(var i=0;i<TILE_COUNT;i++){
+				this.tilemap[i][index] = temp[i];				
+			}
+		}
+	};
+	
 	this.checkBoard = function(){
 		for(var i=0; i<TILE_COUNT; i++){
 			for(var j=0; j<TILE_COUNT; j++){

@@ -1,12 +1,65 @@
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <img src="resources/images/block.png" height="0" width="0" style="visibility: hidden"/>
+<img src="resources/images/mask.png" height="0" width="0" style="visibility: hidden"/>
 </head>
 <body>
-<canvas id="canvas" height="480" width="640">
-</canvas><br/>
-<p></p>
+<body>
+<span class="optionsbtnsidenav" onclick="openNav()">&#9776;</span>
+<div id="mySidenav" class="sidenav">
+  <span class="closebtnsidenav" onclick="closeNav()">&times;</span>
+  <div>
+	<div class="sidenavinputgroup">
+	  <label class="sidenavlabel">BOARD SIZE : </label>
+	  <input type="button" class="sidenavbutton" value="-" id="button-minus" onclick="minusClick()"/>
+	  <input type="number" class="sidenavfield" id="boardsize-field" disabled />
+	  <input type="button" class="sidenavbutton" value="+" id="button-plus" onclick="plusClick()"/>
+	</div>
+  </div>
+  <div>
+    <div class="sidenavinputgroup">
+	  <label class="sidenavlabel">STOPWATCH : </label>
+		<label class="switch">
+			<input type="checkbox" id="togBtn" checked onclick="toggle()">
+			<div class="slider round"></div>
+		</label>
+	</div>
+  </div>
+  <div>
+	<button onclick="location.reload()" style="font: 15px Lucida Console; margin: 15px; cursor:pointer;">REFRESH</button>
+  </div>
+  <div style="font:15px Lucida Console; color:lightgrey; text-align:left; padding: 14px">
+  <b>INSTRUCTIONS:</b><br>
+  <span style="font:13px Lucida Console; color:lightgrey;">Drag to order the tiles.</span>
+  </div>
+</div>
+
+<div class="callout" id="SolvedMsg">
+  <div class="callout-header">TILELOOP</div>
+  <div class="callout-container">
+	<div class="callout-text" id="callout-text1"></div>
+	<button class="calloutbtn" id="calloutbtn1" onclick="solvedBtnClick()">Try Again</button>
+  </div>
+</div>
+
+<div style="display:block; position:absolute; top:20px; right:20px">
+<a href="https://github.com/lalaniket8/tileloop" target="_blank" ><img src="resources/images/GitHub_Logo.png"/></a>
+ </div>
+
+<div id="stopwatch">
+<span>&#x23F2;</span>
+<span id="stopwatchvalue">0.0</span>
+</div>
+
+<div id="refreshButton">
+
+</div>
+
+<canvas id="canvas">
+[CANVAS NOT SUPPORTED]
+</canvas>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="constants.js"></script>
 <script src="canvas.js"></script>
@@ -15,6 +68,7 @@
 <script src="touch.js"></script>
 <script src="tile.js"></script>
 <script src="board.js"></script>
+<script src="stopwatch.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
