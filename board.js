@@ -12,7 +12,6 @@ var Board = function(){
 			this.tilemap[i][j] = new tile(tile_number,i,j);
 			tile_number = tile_number + TILE_COUNT;
 		}
-		
 	}
 		
 	this.drawBoard = function(){
@@ -94,11 +93,9 @@ var Board = function(){
 		if(this.currentStripNo != null && this.currentStripNo != undefined && this.currentStripType != STRIP_TYPE.UNREGISTERED){
 			if(this.currentStripType == STRIP_TYPE.ROW){
 				this.drawRow(this.currentStripNo,delx);
-				this.drawBoardMask(this.currentStripType,this.currentStripNo);
 			}
 			if(this.currentStripType == STRIP_TYPE.COL){
 				this.drawCol(this.currentStripNo,dely);
-				this.drawBoardMask(this.currentStripType,this.currentStripNo);
 			}
 		}
 	};
@@ -212,7 +209,7 @@ var Board = function(){
 		
 	};
 	
-	this.drawBoardMask = function(dir,stripNo){
+	/*this.drawBoardMask = function(dir,stripNo){
 		if(dir == STRIP_TYPE.ROW && stripNo != null && stripNo != undefined){
 			this.maskSprite.draw((BOARD_LEFT_OFFSET - TILE_SIZE),(BOARD_TOP_OFFSET + (stripNo * TILE_SIZE)));
 			this.maskSprite.draw(BOARD_RIGHT_MARGIN,(BOARD_TOP_OFFSET + (stripNo * TILE_SIZE)));
@@ -221,6 +218,6 @@ var Board = function(){
 			this.maskSprite.draw((BOARD_LEFT_OFFSET + (stripNo * TILE_SIZE)),(BOARD_TOP_OFFSET - TILE_SIZE));
 			this.maskSprite.draw((BOARD_LEFT_OFFSET + (stripNo * TILE_SIZE)),BOARD_BOTTOM_MARGIN);
 		}
-	};
+	};*/
 };
 
