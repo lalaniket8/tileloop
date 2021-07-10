@@ -10,6 +10,7 @@ Game Instructions: Drag to order the tiles.
 
 You can play the game here : [tileloop](https://lalaniket8.github.io/tileloop/)
 
+Watch gameplay video : [take me to youtube](https://youtu.be/QtweHmpG9UU)
 
 #### FEATURES
 * Board size - 2 to 10 rows supported
