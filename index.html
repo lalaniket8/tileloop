@@ -22,7 +22,16 @@
     <div class="sidenavinputgroup">
 	  <label class="sidenavlabel">STOPWATCH : </label>
 		<label class="switch">
-			<input type="checkbox" id="togBtn" checked onclick="toggle()">
+			<input type="checkbox" id="togBtn" checked onclick="toggleStopWatch()">
+			<div class="slider round"></div>
+		</label>
+	</div>
+  </div>
+  <div>
+    <div class="sidenavinputgroup">
+	  <label class="sidenavlabel">SOUND : </label>
+		<label class="switch">
+			<input type="checkbox" id="togBtn" checked onclick="toggleSound()">
 			<div class="slider round"></div>
 		</label>
 	</div>
@@ -54,6 +63,10 @@
 </div>
 
 <button id="reshuffleButton" onclick="init()" style="font: 18px Lucida Console; margin: 15px; cursor:pointer; display:block; position:absolute; top:80px; right:5px">&#8635;</button>
+
+<div id="sound">
+<span style="font-size:27px;">&#9835;</span>
+</div>
 
 <canvas id="canvas">
 [CANVAS NOT SUPPORTED]

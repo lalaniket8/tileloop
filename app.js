@@ -20,7 +20,7 @@ function plusClick(){
 	}
 };
 
-function toggle(){
+function toggleStopWatch(){
 	if(stopwatchDisplayToggle){
 		stopwatchDisplayToggle = false;
 		document.getElementById("stopwatch").style.display = 'none';
@@ -30,6 +30,18 @@ function toggle(){
 	}
 	document.getElementById('canvas').focus();
 };
+
+function toggleSound(){
+	if(SOUND_TOGGLE){
+		SOUND_TOGGLE = false;
+		document.getElementById("sound").style.display = 'none';
+	}else{
+		SOUND_TOGGLE = true;
+		document.getElementById("sound").style.display = 'block';
+	}
+	document.getElementById('canvas').focus();
+};
+
 
 function openNav() {
 	document.getElementById("mySidenav").style.width = "260px";
@@ -81,12 +93,14 @@ $(document).ready(function(){
 		board.unregisterStrip(delx,dely);
 		if(validclick){
 			if(board.checkBoard()){
+				board.playSound(WIN_SOUND);
+				console.log("WIN_SOUND");
 				document.getElementById('SolvedMsg').style.display='block';
 				document.getElementById('calloutbtn1').focus();
 				solvedCalloutDisplayed = true;
 				if(stopwatch.running){
 					stopwatch.stop();
-					console.log(stopwatch.getValue());
+					//console.log(stopwatch.getValue());
 					var time = stopwatch.getValue();
 					var mins = Math.floor(time / 60);
 					var secs = Math.round(((time % 60) + Number.EPSILON) * 10) / 10;

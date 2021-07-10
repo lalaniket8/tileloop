@@ -22,6 +22,21 @@ var Board = function(){
 		}
 	};
 	
+	this.playSound = function(sound){
+		if(SOUND_TOGGLE){
+			if(sound == CLICK_SOUND){
+			var audio = new Audio(CLICK_SOUND_FILE);
+			audio.play();
+			return;
+			}
+			if(sound == WIN_SOUND){
+				var audio = new Audio(WIN_SOUND_FILE);
+				audio.play();
+				return;
+			}
+		}
+	};
+	
 	this.randomize = function(){
 		var type = 0;
 		var index = 0;
@@ -117,6 +132,7 @@ var Board = function(){
 					return resolved_y_in;
 				}
 			}else{}
+			
 		return null;
 	};
 	
@@ -173,6 +189,7 @@ var Board = function(){
 			
 			this.currentStripType = STRIP_TYPE.UNREGISTERED;
 			this.currentStripNo = null;
+			this.playSound(CLICK_SOUND);
 		}
 	};
 	
