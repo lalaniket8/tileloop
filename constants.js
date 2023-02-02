@@ -28,6 +28,6 @@ var RANDOM_COUNT = TILE_COUNT * 200;
 var SOUND_TOGGLE = true;
 
 var CLICK_SOUND = 0;
-var CLICK_SOUND_FILE = 'resources/soundeffects/select_007.ogg';
+var CLICK_SOUND_FILE = 'resources/soundeffects/click2.wav';//'resources/soundeffects/select_007.ogg';
 var WIN_SOUND = 1;
 var WIN_SOUND_FILE = 'resources/soundeffects/win.ogg';
